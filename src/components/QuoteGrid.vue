@@ -14,7 +14,7 @@ export default {
   props: ["quotes", "remove"],
   methods: {
     removeQuote: function(index) {
-      this.quotes.splice(index);
+      this.quotes.splice(index, 1);
       console.log(this.quotes);
     }
   },
