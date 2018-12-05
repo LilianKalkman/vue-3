@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <new-quote :addQuote="addQuote" :quotes="quotes"></new-quote>
+    <new-quote :addQuote="addQuote" :quotes="quotes" @quoteAdded="addQuote"></new-quote>
     <QuoteGrid :quotes="quotes" :remove="removeQuote"/>
   </div>
 </template>
@@ -18,11 +18,8 @@ export default {
     };
   },
   methods: {
-    addQuote: function() {
-      return function(q) {
-        this.quotes.push(q);
-      };
-      console.log(this.quotes);
+    addQuote: function(data) {
+      this.quotes.push(data);
     },
     removeQuote: function(index) {
       this.quotes.splice(index);

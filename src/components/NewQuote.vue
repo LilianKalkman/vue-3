@@ -1,6 +1,7 @@
 <template>
   <div>
     <input type="text" @change="handleInput">
+    <input type="text" @change="createNew">
   </div>
 </template>
 
@@ -15,6 +16,11 @@ export default {
     handleInput(event) {
       this.newQuote = event.target.value;
       this.quotes.push(this.newQuote);
+    },
+    createNew(event) {
+      this.newQuote = event.target.value;
+      this.$emit("quoteAdded", this.newQuote);
+      this.newQuote = " ";
     }
   },
   props: ["addQuote", "quotes"]
