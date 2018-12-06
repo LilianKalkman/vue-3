@@ -2,7 +2,7 @@
   <div id="app">
     <Header :quotes="quotes" :maxQuotes="maxQuotes"/>
     <new-quote :addQuote="addQuote" :quotes="quotes" @quoteAdded="addQuote"></new-quote>
-    <QuoteGrid :quotes="quotes" :remove="removeQuote"/>
+    <QuoteGrid :quotes="quotes" :remove="removeQuote" @quoteDeleted="removeQuote"/>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <quote v-for="(quote, i) in quotes">
-      <div @click="remove(i)">{{ quote }}</div>
+      <div @click="removeQuote(i)">{{ quote }}</div>
     </quote>
   </div>
 </template>
@@ -14,8 +14,7 @@ export default {
   props: ["quotes", "remove"],
   methods: {
     removeQuote: function(index) {
-      this.quotes.splice(index, 1);
-      console.log(this.quotes);
+      this.$emit("quoteDeleted", index);
     }
   },
   components: {
